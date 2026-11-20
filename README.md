@@ -49,6 +49,98 @@ A multi-role client management panel built for [BK Software CO.](https://bksoftw
 
 ---
 
+## ER Diagram
+
+```mermaid
+erDiagram
+  users ||--o{ domains : "has"
+  users ||--o{ hostings : "has"
+  users ||--o{ servers : "has"
+  users ||--o{ notifications : "receives"
+  users ||--o{ support : "submits"
+  hostings ||--o{ emails : "has"
+  hostings ||--o{ ssl_sql : "has"
+  hostings ||--o{ websites : "has"
+  products ||--o{ hostings : "defines plan"
+
+  users {
+    int id PK
+    string username
+    string email
+    string role
+    int google
+  }
+  domains {
+    int id PK
+    int user_id FK
+    string domain
+    string expires_date
+    tinyint deleted
+  }
+  hostings {
+    int id PK
+    int user_id FK
+    string hosting_plan
+    string expires_date
+    tinyint deleted
+  }
+  servers {
+    int id PK
+    int user_id FK
+    string server_ip
+    string expires_date
+    tinyint deleted
+  }
+  ssl_sql {
+    int id PK
+    string website
+    string ssl_plan
+    tinyint deleted
+  }
+  emails {
+    int id PK
+    int hosting_id FK
+    string email
+    tinyint deleted
+  }
+  websites {
+    int id PK
+    int user_id FK
+    string website
+    tinyint deleted
+  }
+  notifications {
+    int id PK
+    int user_id FK
+    string type
+    int remaining_days
+    tinyint new
+  }
+  products {
+    int id PK
+    string product
+  }
+  support {
+    int id PK
+    string username
+    string topic
+    tinyint deleted
+  }
+  blogs {
+    int id PK
+    string title
+    string category
+    tinyint deleted
+  }
+  contact {
+    int id PK
+    string email
+    string text
+  }
+```
+
+*Built by [Furkan Yaşar](https://linkedin.com/in/furkan-yasar0)*
+
 ---
 
 # BKSoftware Müşteri Yönetim Paneli — Mimari
@@ -101,5 +193,95 @@ A multi-role client management panel built for [BK Software CO.](https://bksoftw
 **Google OAuth 2.0:** `users` tablosundaki `google` bayrağı Google kimlik doğrulamalı hesapları parola tabanlı hesaplardan ayırır.
 
 ---
+
+## ER Diagram
+
+```mermaid
+erDiagram
+  users ||--o{ domains : "has"
+  users ||--o{ hostings : "has"
+  users ||--o{ servers : "has"
+  users ||--o{ notifications : "receives"
+  users ||--o{ support : "submits"
+  hostings ||--o{ emails : "has"
+  hostings ||--o{ ssl_sql : "has"
+  hostings ||--o{ websites : "has"
+  products ||--o{ hostings : "defines plan"
+
+  users {
+    int id PK
+    string username
+    string email
+    string role
+    int google
+  }
+  domains {
+    int id PK
+    int user_id FK
+    string domain
+    string expires_date
+    tinyint deleted
+  }
+  hostings {
+    int id PK
+    int user_id FK
+    string hosting_plan
+    string expires_date
+    tinyint deleted
+  }
+  servers {
+    int id PK
+    int user_id FK
+    string server_ip
+    string expires_date
+    tinyint deleted
+  }
+  ssl_sql {
+    int id PK
+    string website
+    string ssl_plan
+    tinyint deleted
+  }
+  emails {
+    int id PK
+    int hosting_id FK
+    string email
+    tinyint deleted
+  }
+  websites {
+    int id PK
+    int user_id FK
+    string website
+    tinyint deleted
+  }
+  notifications {
+    int id PK
+    int user_id FK
+    string type
+    int remaining_days
+    tinyint new
+  }
+  products {
+    int id PK
+    string product
+  }
+  support {
+    int id PK
+    string username
+    string topic
+    tinyint deleted
+  }
+  blogs {
+    int id PK
+    string title
+    string category
+    tinyint deleted
+  }
+  contact {
+    int id PK
+    string email
+    string text
+  }
+```
 
 *Built by [Furkan Yaşar](https://linkedin.com/in/furkan-yasar0)*
