@@ -56,12 +56,9 @@ erDiagram
   users ||--o{ domains : "has"
   users ||--o{ hostings : "has"
   users ||--o{ servers : "has"
+  users ||--o{ websites : "has"
   users ||--o{ notifications : "receives"
-  users ||--o{ support : "submits"
   hostings ||--o{ emails : "has"
-  hostings ||--o{ ssl_sql : "has"
-  hostings ||--o{ websites : "has"
-  products ||--o{ hostings : "defines plan"
 
   users {
     int id PK
@@ -138,6 +135,8 @@ erDiagram
     string text
   }
 ```
+
+---
 
 *Built by [Furkan Yaşar](https://linkedin.com/in/furkan-yasar0)*
 
@@ -192,8 +191,6 @@ erDiagram
 
 **Google OAuth 2.0:** `users` tablosundaki `google` bayrağı Google kimlik doğrulamalı hesapları parola tabanlı hesaplardan ayırır.
 
----
-
 ## ER Diagram
 
 ```mermaid
@@ -201,12 +198,9 @@ erDiagram
   users ||--o{ domains : "has"
   users ||--o{ hostings : "has"
   users ||--o{ servers : "has"
+  users ||--o{ websites : "has"
   users ||--o{ notifications : "receives"
-  users ||--o{ support : "submits"
   hostings ||--o{ emails : "has"
-  hostings ||--o{ ssl_sql : "has"
-  hostings ||--o{ websites : "has"
-  products ||--o{ hostings : "defines plan"
 
   users {
     int id PK
@@ -283,5 +277,7 @@ erDiagram
     string text
   }
 ```
+
+---
 
 *Built by [Furkan Yaşar](https://linkedin.com/in/furkan-yasar0)*
